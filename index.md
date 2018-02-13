@@ -2,10 +2,10 @@
 layout: default
 ---
 
-{% for p in site.data.contentful.spaces.posts %}
+{% for p in site.data.contentful.spaces.posts.post %}
 
-<h1>{{ p[1][0].title }}</h1>
-{{ p[1][0].markdown | markdownify }}
+<h1>{{ p.title }}</h1>
+{{ p.markdown | markdownify }}
 
 {% endfor %}
 
