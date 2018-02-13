@@ -1,0 +1,64 @@
+---
+post:
+- sys:
+    id: NZ3BQ2pGQEsiqyKYIOqsA
+    created_at: !ruby/object:DateTime 2018-02-13 22:09:25.480000000 Z
+    updated_at: !ruby/object:DateTime 2018-02-13 22:09:25.480000000 Z
+    content_type_id: post
+  created_at: !ruby/object:DateTime 2017-03-10 00:00:00.000000000 -08:00
+  markdown: |-
+    image
+    Clearbit data inside Salesforce: All enrichment fields are available for any Salesforce record
+
+    From there, you can start building out your scoring rules based on your new rich standardized data set.
+
+    Below, we've put together a quick tutorial to get you started using just a custom field and a bit of Apex to build a real-time custom lead score field on every lead in SFDC.
+
+    Lead qualification isn't particularly difficult, but it is extremely important to get right. When you aren't effectively (and automatically) qualifying leads as a part of your sales process, you are simply wasting time and money.
+
+    Simple lead qualification and scoring is easy to set up with Clearbit and Salesforce. Doing so will take you five minutes, but save you hours. It will also boost the quality of leads sent to your sales reps, and make sure you are only talking to the right leads for your business.
+
+    Building your own custom lead score in Salesforce.
+    Requirements:
+
+    Salesforce permissions to create custom formula fields
+    Clearbit for Salesforce installed
+    Step 1: Create a custom formula field on the lead object
+    SFDC_create_a_new_custom_field_on_lead_object
+
+    Choose Formula under Data Type.
+
+    formula data type
+
+    Name your new Custom Field and set Formula Return Type to Percent and Decimal Places to 2.
+
+    SFDC_create_a_new_custom_field_and_set_params
+
+    Step 2: Paste in this pre-built Apex code.
+    (
+    CASE(cbit__Clearbit__r.cbit__CompanyTags__c, "B2B", 5,0)
+    +
+    CASE(cbit__Clearbit__r.cbit__CompanyType__c, "public", 5,0)
+    +
+    CASE( cbit__Clearbit__r.cbit__CompanyGeoCountryCode__c , "US", 10, 0)
+    +
+    CASE( cbit__Clearbit__r.cbit__CompanyMetricsEmployeesRange__c, "1000+", 7, "251-1000", 8, "51-250", 10, "11-50", 4, "1-10", 2, 0)
+    +
+    IF(CONTAINS( cbit__Clearbit__r.cbit__CompanyTech__c , "salesforce"), 10,
+    IF(CONTAINS( cbit__Clearbit__r.cbit__CompanyTech__c , "marketo"), 8,
+    IF(CONTAINS( cbit__Clearbit__r.cbit__CompanyTech__c , "google_analytics"), 6,0)))
+    )
+    /
+    40
+    Step 3: Modify fields and scores to match your own requirements.
+    Don't forget to change the final number to reflect the total potential sum if each criteria returns the max value. For example, in the default code above, the maximum possible value is 40.
+
+    Pro Tip: Custom fields in Salesforce tend to have names that can get quite long and unwieldy, so don't forget to use the Insert Field button above the formula edit box to search through available fields and add them to the formula with a single click.
+
+    image
+
+    Step 4: See it in action!
+    simple salesforce.com leadscoring in action
+
+    That's it! You now have a simple and robust lead scoring system directly within Salesforce, which you can use for lead routing, prioritization, and reporting.
+  title: Simple Lead Scoring and Qualification in Salesforce
