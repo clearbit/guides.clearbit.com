@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div class="cms pt2 pt3-m pt4-l">
+<time class="gray avenir f6-5" datetime="{{ page.created_at | date: "%Y-%m-%d" }}">{{ page.created_at | date: "%d %B %Y" }}</time>
+<h1 class="f3 f2-m f1-l mt2">
+<a href="/posts/{{ page.title | slugify }}/">
+{{ page.title }}
+</a>
+</h1>
+</div>
+
+{{ page.markdown | markdownify }}

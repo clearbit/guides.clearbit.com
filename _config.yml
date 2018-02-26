@@ -1,16 +1,19 @@
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+title: Clearbit Sales Operations
+description: >-
+  Clearbit provides powerful products and data APIs to help your business grow. Contact enrichment, lead generation, financial compliance, and more...
+baseurl: ""
+url: ""
+twitter:
+  username: clearbit
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/opengraph.png
 markdown: kramdown
 plugins:
 - jekyll-feed
+- jekyll-seo-tag
 - jekyll-contentful-data-import
 exclude:
 - Gemfile
@@ -25,3 +28,10 @@ contentful:
     - posts:
         space: c5rxotc5huuu
         access_token: c45d96adf15d611d2bcdf5b8770cd5cc0c2debb40df2b35ad4bd31f60c8c8d84
+        destination: ""
+page_gen:
+  - data: 'posts.post'
+    template: 'post'
+    index_files: true
+    name: 'title'
+    dir: 'posts'

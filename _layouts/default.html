@@ -3,26 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cormorant:700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i" rel="stylesheet">
-    <style>
-      body, h1, h2, h3, h4, h5, h6 {
-        font-family: 'Cormorant',Athelas,Georgia,serif;
-      }
-    </style>
+    {% seo %}
+    <link rel="stylesheet" type="text/css" href="https://blog.clearbit.com/assets/css/tachyons.css?v=41de22aa67">
+    <link rel="stylesheet" type="text/css" href="https://blog.clearbit.com/assets/css/screen.css?v=41de22aa67">
   </head>
   <body>
-    <div class="py2 px2 mb2 border-bottom fixed col-12 bg-white">
-      <header class="container flex flex-center">
-        <h1 class="flex-none m0 regular h4">
-          <a href="/" class="black">Clearbit Sales Operations Manual</a>
-        </h1>
-      </header>
-    </div>
-    <article role="main" class="clearfix py4">
-      {{ content }}
+    <article role="main" class="post mw7 center ph3 pt3 pt4-m pt4-l mt3-l">
+      <section class="cms lh-copy">
+        <div class="kg-card-markdown">
+          {{ content }}
+        </div>
+      </section>
     </article>
+
     <footer class="container mb4 clearfix">
       <small class="gray px2">&copy;2018.</small>
     </footer>
