@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    {% seo %}
+    <title>{{ page.title }}</title>
+    {% seo title=false %}
     {% assign current_url = site.url | append: page.url %}
     <meta property="og:image" content="https://sc-socialimage.herokuapp.com/image.jpg?url={{ current_url | url_encode }}">
     <meta property="og:image:height" content="315">

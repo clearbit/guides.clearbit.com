@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Clearbit Guides
 ---
 
 {% assign posts = site.data.posts.post %}
