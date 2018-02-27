@@ -9,7 +9,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /images/opengraph.png
+      image: "https://sc-socialimage.herokuapp.com/"
 markdown: kramdown
 plugins:
 - jekyll-feed
