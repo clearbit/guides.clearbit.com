@@ -15,6 +15,7 @@ plugins:
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-contentful-data-import
+- jekyll-toc
 exclude:
 - Gemfile
 - Gemfile.lock

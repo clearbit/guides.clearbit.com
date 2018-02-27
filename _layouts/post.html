@@ -1,6 +1,9 @@
 ---
 layout: default
+toc: true
 ---
+
+{{ page.markdown | markdownify | toc_only }}
 
 <div class="cms pt2 pt3-m pt4-l">
 <time class="gray avenir f6-5" datetime="{{ page.created_at | date: "%Y-%m-%d" }}">{{ page.created_at | date: "%d %B %Y" }}</time>
