@@ -5,14 +5,6 @@ baseurl: ""
 url: ""
 twitter:
   username: clearbit
-defaults:
-  - scope:
-      path: ""
-    values:
-      image:
-        path: "https://sc-socialimage.herokuapp.com/image.jpg"
-        width: 828
-        height: 315
 markdown: kramdown
 plugins:
 - jekyll-feed

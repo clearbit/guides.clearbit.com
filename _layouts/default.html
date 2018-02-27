@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     {% seo %}
+    {% assign current_url = site.url | append: page.url %}
+    <meta property="og:image" content="https://sc-socialimage.herokuapp.com/image.jpg?url={{ current_url | url_encode }}">
+    <meta property="og:image:height" content="315">
+    <meta property="og:image:width" content="828">
     <link rel="stylesheet" type="text/css" href="https://blog.clearbit.com/assets/css/tachyons.css?v=41de22aa67">
     <link rel="stylesheet" type="text/css" href="https://blog.clearbit.com/assets/css/screen.css?v=41de22aa67">
   </head>
