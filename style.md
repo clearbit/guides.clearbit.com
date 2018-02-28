@@ -2,9 +2,12 @@
 layout: default
 title: Clearbit Guides Styleguide
 permalink: /style/
+toc: true
 ---
 
 # Guides Styleguide
+
+{{ page.content | markdownify | toc_only }}
 
 Writing Clearbit guides is fun and follows a process. If you're stuck, have
 questions, or come across any ideas we should implement, send us an email to

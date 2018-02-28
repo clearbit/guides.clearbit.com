@@ -18,6 +18,47 @@
         opacity: 0.75;
         line-height: 1.5;
       }
+      img[data-action="zoom"] {
+        cursor: pointer;
+        cursor: -webkit-zoom-in;
+        cursor: -moz-zoom-in;
+      }
+      .zoom-img,
+      .zoom-img-wrap {
+        position: relative;
+        z-index: 666;
+        -webkit-transition: all 300ms;
+        -o-transition: all 300ms;
+        transition: all 300ms;
+      }
+      img.zoom-img {
+        cursor: pointer;
+        cursor: -webkit-zoom-out;
+        cursor: -moz-zoom-out;
+      }
+      .zoom-overlay {
+        z-index: 420;
+        background: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        filter: "alpha(opacity=0)";
+        opacity: 0;
+        -webkit-transition:      opacity 300ms;
+        -o-transition:      opacity 300ms;
+        transition:      opacity 300ms;
+      }
+      .zoom-overlay-open .zoom-overlay {
+        filter: "alpha(opacity=100)";
+        opacity: 1;
+      }
+      .zoom-overlay-open,
+      .zoom-overlay-transitioning {
+        cursor: default;
+      }
     </style>
   </head>
   <body>
@@ -32,5 +73,73 @@
     <footer class="container mb4 clearfix">
       <small class="gray px2">&copy;2018.</small>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $('article img').attr( "data-action", "zoom" )
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zoom.js/0.0.1/zoom.min.js"></script>
+
+    <script>
+      /* ========================================================================
+ * Bootstrap: transition.js v3.3.7
+ * http://getbootstrap.com/javascript/#transitions
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
+
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
+
+    var transEndEventNames = {
+      WebkitTransition : 'webkitTransitionEnd',
+      MozTransition    : 'transitionend',
+      OTransition      : 'oTransitionEnd otransitionend',
+      transition       : 'transitionend'
+    }
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return { end: transEndEventNames[name] }
+      }
+    }
+
+    return false // explicit for ie8 (  ._.)
+  }
+
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    return this
+  }
+
+  $(function () {
+    $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
+  })
+
+}(jQuery);
+    </script>
   </body>
 </html>
