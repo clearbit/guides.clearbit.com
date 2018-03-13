@@ -9,8 +9,7 @@
     <meta property="og:image" content="https://sc-socialimage.herokuapp.com/image.jpg?url={{ current_url | url_encode }}">
     <meta property="og:image:height" content="315">
     <meta property="og:image:width" content="828">
-    <link rel="stylesheet" type="text/css" href="https://blog.clearbit.com/assets/css/tachyons.css?v=41de22aa67">
-    <link rel="stylesheet" type="text/css" href="https://blog.clearbit.com/assets/css/screen.css?v=41de22aa67">
+    <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" rel="stylesheet">
     <style>
       .caption {
         font-size: 14px;
@@ -135,24 +134,114 @@
     color: #f8f8f2;
 }
 
+article img {
+  max-width: 100%;
+  background: #fff;
+  padding: 2rem;
+}
+
+body {
+    font-family: Avenir Next, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: rgba(0,0,0,0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, input {
+    font-family: Avenir Next, sans-serif;
+   }
+
+   .container {
+     max-width: 40rem;
+   }
+
+   :root {
+   --brand: #0820f6;
+ }
+.prose p, .prose li {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.prose a {
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1),color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: inset 0 -0.07em 0 var(--brand);
+  }
+
+  .prose a:hover {
+    box-shadow: inset 0 -0.85em 0 var(--brand);
+  }
+
+  .prose ul, .prose ol {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.5rem;
+    counter-reset: list;
+  }
+
+  .prose li {
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose ul > li:before {
+    content: "";
+    height: 0.375rem;
+    width: 0.375rem;
+    border-radius: 2px;
+    text-align: right;
+    position: absolute;
+    background-color: var(--brand);
+    font-size: 0.875rem;
+    left: -1.25rem;
+    top: 0.725rem;
+  }
+
+  .prose li > ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  .prose li > ul > li {
+    color: rgba(0,0,0,.5);
+   }
+  .prose li > ul > li:before {
+    background: transparent;
+    border: 1px solid var(--brand);
+  }
+
+  .prose ol > li:before {
+    text-align: right;
+    position: absolute;
+    counter-increment: list;
+    content: counter(list);
+    color: var(--brand);
+    font-size: 0.875rem;
+    left: -1.25rem;
+    top: 0.25rem;
+  }
+
+
     </style>
   </head>
   <body>
-    <article role="main" class="post mw7 center ph3 pt3 pt4-m pt4-l mt3-l">
-      <section class="cms lh-copy">
-        <div class="kg-card-markdown">
+
+    <article role="main" class="">
+      <section class="">
+        <div class="">
           {{ content }}
         </div>
       </section>
     </article>
 
-    <footer class="container mb4 clearfix">
-      <small class="gray px2">&copy;2018.</small>
-    </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+      // Allow prose images to be zoomable
       $('article img').attr( "data-action", "zoom" )
+      $('article a').attr( "target", "_blank" )
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zoom.js/0.0.1/zoom.min.js"></script>
 

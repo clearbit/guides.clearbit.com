@@ -3,20 +3,27 @@ layout: default
 toc: true
 ---
 
-{{ page.markdown | markdownify | toc_only }}
+<div class="clearfix mxn2">
+  <nav class="prose col col-3 px2">
+  <a href="/">&larr; Back to guides</a>
+    {{ page.markdown | markdownify | toc_only }}
+  </nav>
+  <div class="col col-9 px2">
 
-<div class="cms pt2 pt3-m pt4-l">
-<time class="gray avenir f6-5" datetime="{{ page.created_at | date: "%Y-%m-%d" }}">{{ page.created_at | date: "%d %B %Y" }}</time>
-<h1 class="f3 f2-m f1-l mt2">
-<a href="/posts/{{ page.title | slugify }}/">
-{{ page.title }}
-</a>
-</h1>
+  <div class="container">
+    <time class="" datetime="{{ page.created_at | date: "%Y-%m-%d" }}">{{ page.created_at | date: "%d %B %Y" }}</time>
+    <h1 class="">
+      <a href="/posts/{{ page.title | slugify }}/">
+        {{ page.title }}
+      </a>
+    </h1>
+
+    <section class="prose">
+      {{ page.markdown | markdownify }}
+    </section>
+  </div>
+</div>
 </div>
 
-{{ page.markdown | markdownify }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-<script>
-
-</script>

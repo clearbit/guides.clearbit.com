@@ -17,7 +17,5 @@ title: Clearbit Guides
 </h1>
 </div>
 
-{{ p.markdown | markdownify }}
-
 {% endfor %}
 
