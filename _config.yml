@@ -32,4 +32,4 @@ page_gen:
     name: 'title'
     dir: 'posts'
 toc:
-  max_level: 3
+  max_level: 2

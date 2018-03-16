@@ -323,14 +323,24 @@ h1, h2, h3, h4, h5, h6, input {
     border-radius: 4px;
   }
 
+  /* TOC */
+  .section-nav {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    margin-right: 1rem;
+  }
+  .toc-entry {
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  .toc-entry a {
+    color: #000;
+  }
     </style>
   </head>
   <body>
-    <header class="border-bottom py1 px2 mb2">
-      <a href="/">Clearbit</a>
-    </header>
-
-    <article role="main" class="">
+    <article role="main" class="mt4">
       <section class="">
         <div class="">
           {{ content }}
@@ -341,8 +351,8 @@ h1, h2, h3, h4, h5, h6, input {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       // Allow prose images to be zoomable
-      $('article img').attr( "data-action", "zoom" )
-      $('article a').attr( "target", "_blank" )
+      $('.prose img').attr( "data-action", "zoom" )
+      $('.prose a').attr( "target", "_blank" )
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zoom.js/0.0.1/zoom.min.js"></script>
 

@@ -3,39 +3,37 @@ layout: default
 toc: true
 ---
 
-<div class="clearfix mxn2 flex">
-  <div class="col-9 px2 flex">
+{% if page.markdown %}
+{% assign prose = page.markdown %}
+{% else %}
+{% assign prose = content %}
+{% endif %}
 
-  <div class="container">
-
-    <header class="prose">
-    <time class="" datetime="{{ page.created_at | date: "%Y-%m-%d" }}">{{ page.created_at | date: "%d %B %Y" }}</time>
-    <h1 class="">
-      <a href="/posts/{{ page.title | slugify }}/">
-        {{ page.title }}
-      </a>
-    </h1>
-  </header>
-    <section class="prose">
-      <figure>
-
-        <img src="https://s3-us-west-1.amazonaws.com/clearbit-blog-production/2017/11/1.png" alt="" data-action="zoom">
-        <figcaption>Adding a small bit of flair can really help out a figure element.</figcaption>
-      </figure>
-      {{ page.markdown | markdownify }}
-      <p>
-      <a href="/">&larr; Back to guides</a>
-    </p>
-    </section>
+<div class="mx-auto lg-container px2">
+  <div class="clearfix mxn2 flex">
+    <div class="col-12 md-col-9 px2">
+      <header class="mt4">
+        <time class="muted m0" datetime="{{ page.created_at | date: "%Y-%m-%d" }}">{{ page.created_at | date: "%d %B %Y" }}</time>
+        <h1 class="mt0 mb3">
+          <a href="/posts/{{ page.title | slugify }}/">
+            {{ page.title }}
+          </a>
+        </h1>
+      </header>
+      <section class="prose">
+        {{ prose | markdownify }}
+        <p>
+        </p>
+      </section>
+    </div>
+    <nav class="col-3 px2 sticky top-0">
+      <div class="sticky top-0 py4">
+        <p class="m0"><a href="/" class="black bold">&larr; Back to guides</a></p>
+        {{ prose | markdownify | toc_only }}
+      </div>
+    </nav>
   </div>
 </div>
-  <nav class="prose col-3 px2 sticky top-0">
-    <div class="sticky top-0 py4">
-  <a href="/">&larr; Back to guides</a>
-    {{ page.markdown | markdownify | toc_only }}
-  </nav>
-</div>
-</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 

@@ -1,13 +1,9 @@
 ---
-layout: default
+layout: post
 title: Clearbit Guides Styleguide
 permalink: /style/
 toc: true
 ---
-
-# Guides Styleguide
-
-{{ page.content | markdownify | toc_only }}
 
 Writing Clearbit guides is fun and follows a process. If you're stuck, have
 questions, or come across any ideas we should implement, send us an email to
@@ -55,6 +51,13 @@ You can do so much with Markdown, here's how we use it at Clearbit. For a
 refresher, see [Github's reference](https://guides.github.com/features/mastering-markdown/)
 or for a more in-depth tutorial, spend 30 minutes with [Wes Bos' Mastering
 Markdown](https://masteringmarkdown.com/) video series.
+
+### Components
+
+<figure>
+<img src="https://s3-us-west-1.amazonaws.com/clearbit-blog-production/2017/11/1.png" alt="" data-action="zoom">
+<figcaption>Adding a small bit of flair can really help out a figure element.</figcaption>
+</figure>
 
 ### Headers
 
