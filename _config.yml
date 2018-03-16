@@ -31,3 +31,5 @@ page_gen:
     index_files: true
     name: 'title'
     dir: 'posts'
+toc:
+  max_level: 3

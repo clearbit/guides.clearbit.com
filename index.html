@@ -1,0 +1,32 @@
+---
+layout: default
+title: Clearbit Guides
+---
+
+{% assign posts = site.data.posts.post %}
+{% assign sorted_posts = posts | sort: 'created_at' | reverse %}
+
+<div class="lg-container mx-auto">
+  <div class="flex flex-wrap mxn2">
+    {% for p in sorted_posts %}
+
+    <div class="col-4 px2 flex mb3">
+      <div class="shadow bg-white rounded p3 flex">
+        <div class="cms pt2 pt3-m pt4-l flex flex-column">
+          <time class="muted mb1" datetime="{{ p.created_at | date: "%Y-%m-%d" }}">{{ p.created_at | date: "%d %B %Y" }}</time>
+          <h1 class="h3 mt0 mb3 flex-auto">
+            <a href="/posts/{{ p.title | slugify }}/">
+              {{ p.title }}
+            </a>
+          </h1>
+          <p class="mb0">
+          <a class="btn btn-primary" href="/posts/{{ p.title | slugify }}/">Read Guide</a>
+        </p>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</div>
