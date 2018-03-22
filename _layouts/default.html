@@ -348,6 +348,18 @@ h1, h2, h3, h4, h5, h6, input {
   .highlight pre {
     margin: 0;
   }
+  .prose .note {
+    border: 1px solid var(--brand);
+    border-radius: 4px;
+    padding: 1rem;
+    font-size: .875rem;
+    background: #fff;
+  }
+  .prose .note::before {
+    content: 'Note: ';
+    font-weight: bold;
+    color: #333;
+  }
     </style>
   </head>
   <body>
