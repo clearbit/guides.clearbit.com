@@ -134,7 +134,7 @@ article img {
 body {
     font-family: Avenir Next, sans-serif;
     -webkit-font-smoothing: antialiased;
-    background: rgba(0,0,0,0.03);
+    background-color: #EDF4FD;
 }
 
 * {
@@ -150,6 +150,13 @@ h1, h2, h3, h4, h5, h6, input {
     font-family: Avenir Next, sans-serif;
    }
 
+
+   .black {
+     color: #25364B;
+   }
+.semibold {
+  font-weight: 500;
+}
 .lg-container {
   max-width: 60rem;
 }
@@ -307,10 +314,28 @@ h1, h2, h3, h4, h5, h6, input {
     color: var(--brand);
   }
   .shadow {
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1);
+    box-shadow:
+      0 1px 1px 0 rgba(51,79,115,0.13),
+      0 1px 4px 0 rgba(63,90,125,0.20),
+      0 5px 13px 0 rgba(77,111,155,0.20);
+  }
+
+  .shadow-hover {
+    transition: all .18s ease-in-out;
+  }
+  .shadow-hover:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 1px 1px 0 rgba(51,79,115,0.13),
+      0 1px 4px 0 rgba(63,90,125,0.20),
+      0 5px 22px 0 rgba(50,77,111,0.36),
+      0 0 0 8px rgba(50,77,111,0.06);
+  }
+  .text-decoration-none, .text-decoration-none:hover {
+    text-decoration: none;
   }
   .rounded {
-    border-radius: 4px;
+    border-radius: 14px;
   }
 
   /* TOC */
