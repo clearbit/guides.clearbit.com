@@ -2,17 +2,13 @@ aitle: Clearbit Sales Operations
 description: >-
   Clearbit provides powerful products and data APIs to help your business grow. Contact enrichment, lead generation, financial compliance, and more...
 baseurl: ""
-url: "https://lucid-mcclintock-871ed5.netlify.com"
+url: "https://guides.clearbit.com"
 twitter:
   username: clearbit
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
-      start_line: 1
 plugins:
 - jekyll-feed
 - jekyll-seo-tag
