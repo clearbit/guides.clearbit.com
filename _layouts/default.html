@@ -10,7 +10,7 @@
     <meta property="og:image:height" content="315">
     <meta property="og:image:width" content="828">
 
-    <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" rel="stylesheet">
+    <link href="/css/basscss.min.css" rel="stylesheet">
     <style>
       .caption {
         font-size: 14px;
@@ -277,30 +277,36 @@ h1, h2, h3, h4, h5, h6, input {
   .prose {
     counter-reset: step;
   }
+  .prose h2 {
+    font-size: 1.75rem;
+    margin-top: 3.5em;
+    margin-bottom: 0.825em;
+  }
   .prose h3, .prose h4 {
     margin-top: 1.5em;
     margin-bottom: 0.825em;
     font-weight: 600;
   }
   .prose h2, .prose h3, .prose h4 {
-    margin-top: 3.5em;
-    margin-bottom: 0.825em;
-    font-weight: 600;
+    color: #25364B;
     position: relative;
   }
   .prose h2:before {
     counter-increment: step;
-    content: 'Step ' counter(step) ': ';
-    color: var(--brand);
-  }
-  .prose h2:after {
-    position: absolute;
-    top: -3rem;
-    left: 0;
-    content: '—';
-    width: 100%;
-    text-align: center;
-    opacity: 0.25;
+    content: '#' counter(step);
+    background-color: #F6FAFF;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    box-shadow: 
+      0 1px 1px 0 rgba(51,79,115,0.13),
+      0 0 1px 0 rgba(63,90,125,0.20),
+      0 2px 7px 0 rgba(77,111,115,0.11);
+    margin-left: -5rem;
+    margin-right: 1rem;
+    display: inline-block;
+    border-radius: 6px;
+    font-size: 1.375rem;
   }
   .prose h2.counter-none:before, .prose h2.counter-none:after {
     content: '';
@@ -352,11 +358,13 @@ h1, h2, h3, h4, h5, h6, input {
   }
 
   .highlighter-rouge {
-        box-shadow: inset 0 0 0 1px #eee;
-        border-radius: 4px;
+        background-color: #EDF4FD;
+        border-radius: 6px;
         overflow-x: hidden;
-        padding: 0 1.5rem 1.5rem;
+        padding: 1.5rem;
         position: relative;
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
   }
   .highlight {
     -ms-overflow-style: none;  // IE 10+
@@ -415,13 +423,13 @@ h1, h2, h3, h4, h5, h6, input {
       </section>
     </article>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <script>
       // Allow prose images to be zoomable
       $('.prose img').attr( "data-action", "zoom" )
       $('.prose a').attr( "target", "_blank" )
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/zoom.js/0.0.1/zoom.min.js"></script>
+    <script src="/js/zoom.min.js"></script>
 
     <script>
       /* ========================================================================
@@ -484,7 +492,7 @@ h1, h2, h3, h4, h5, h6, input {
 
 }(jQuery);
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+    <script src="/js/clipboard.min.js"></script>
     <script>
       var btnMarkup = "<div class='copy-button'><button class='btn bg-white shadow shadow-hover rounded'>Copy to clipboard</button></div>";
 
