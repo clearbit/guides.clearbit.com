@@ -380,16 +380,23 @@ h1, h2, h3, h4, h5, h6, input {
     margin: 0;
   }
   .prose .note {
-    border: 1px solid var(--brand);
-    border-radius: 4px;
-    padding: 1rem;
-    font-size: .875rem;
-    background: #fff;
+    padding: 1.5rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    background: #FFFBD0;
+    color: #595527;
+    position: relative;
   }
   .prose .note::before {
-    content: 'Note: ';
-    font-weight: bold;
-    color: #333;
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    background: linear-gradient(135deg, white 0, white 50%, #D0CBA6 50%, #D0CBA6 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .back-button {
     display: block;
@@ -408,9 +415,11 @@ h1, h2, h3, h4, h5, h6, input {
     right: 1rem;
     top: 1rem;
     z-index: 4;
+    transform: scale(0.75);
   }
   .highlighter-rouge:hover .copy-button {
     opacity: 1;
+    transform: scale(1);
   }
     </style>
   </head>
