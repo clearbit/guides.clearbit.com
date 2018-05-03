@@ -27,6 +27,8 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    imgix (1.1.0)
+      addressable
     jekyll (3.7.3)
       addressable (~> 2.4)
       colorator (~> 1.0)
@@ -86,6 +88,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  imgix
   jekyll (~> 3.7.2)
   jekyll-contentful-data-import
   jekyll-feed (~> 0.6)

@@ -6,7 +6,7 @@
     <title>{{ page.title }}</title>
     {% seo title=false %}
     {% assign current_url = site.url | append: page.url %}
-    <meta property="og:image" content="https://sc-socialimage.herokuapp.com/image.jpg?url={{ current_url | url_encode }}">
+    <meta property="og:image" content="{% social_image {{ page.title }} %}">
     <meta property="og:image:height" content="315">
     <meta property="og:image:width" content="828">
 
@@ -503,6 +503,11 @@ h1, h2, h3, h4, h5, h6, input {
     </script>
     <script src="/js/clipboard.min.js"></script>
     <script>
+      function htmlDecode(input){
+        var e = document.createElement('div');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+      }
       var btnMarkup = "<div class='copy-button'><button class='btn bg-white shadow shadow-hover rounded'>Copy to clipboard</button></div>";
 
 $( ".highlighter-rouge" ).append( btnMarkup );
@@ -510,7 +515,7 @@ $( ".highlighter-rouge" ).append( btnMarkup );
 var btns = document.querySelectorAll('.copy-button');
 var clipboard = new Clipboard(btns, {
   text: function(trigger) {
-    return trigger.parentElement.getElementsByTagName('code')[0].innerHTML;
+    return htmlDecode(trigger.parentElement.getElementsByTagName('code')[0].innerHTML);
   }
 });
 clipboard.on('success', function(e) {
