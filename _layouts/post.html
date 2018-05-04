@@ -9,6 +9,42 @@ toc: true
 {% assign prose = content %}
 {% endif %}
 
+{% assign posts = site.data.posts.post %}
+{% assign sorted_posts = posts | sort: 'created_at' | reverse %}
+
+{% for post in sorted_posts %}
+  {% if post.title == page.title %}
+
+    {% assign position = forloop.index %}
+
+    {% if position == forloop.length %}
+      {% for p in sorted_posts limit:1 offset:0 %}
+        {% assign next_url = p.title | slugify %}
+      {% endfor %}
+    {% else %}
+      {% for p in sorted_posts limit:1 offset:position %}
+        {% assign next_url = p.title | slugify %}
+      {% endfor %}
+    {% endif %}
+
+    {% if position == 1 %}
+      {% assign last_offset = forloop.length | minus:1 %}
+      {% for p in sorted_posts limit:1 offset:last_offset %}
+        {% assign previous_url = p.title | slugify %}
+      {% endfor %}
+    {% else %}
+      {% assign pos = position | minus:2 %}
+      {% for p in sorted_posts limit:1 offset:pos %}
+        {% assign previous_url = p.title | slugify %}
+      {% endfor %}
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
+
+
+
+
 <div class="mx-auto lg-container px4 bg-white shadow rounded">
   <div class="clearfix mxn2 flex">
     <div class="col-12 md-col-8 px2">
@@ -30,11 +66,21 @@ toc: true
     </div>
     <nav class="col-4 px2 sticky top-0">
       <div class="sticky top-0 py4">
-        <p class="m0">
-          <a href="/" class="back-button shadow shadow-hover text-decoration-none semibold h3 m0">
-            X
+        <div class="flex">
+          <div class="flex pill-buttons">
+            <a href="/posts/{{ previous_url }}" class="move-button previous-button shadow-hover text-decoration-none semibold h3 m0 block">
+            <img src="/images/icons/previous.svg">
           </a>
-        </p>
+          <a href="/posts/{{ next_url }}" class="move-button next-button shadow-hover text-decoration-none semibold h3 m0 block">
+            <img src="/images/icons/next.svg">
+          </a>
+          </div>
+          <div class="">
+          <a href="/" class="back-button shadow shadow-hover text-decoration-none semibold h3 m0 block">
+            <img src="/images/icons/close.svg">
+          </a>
+        </div>
+        </div>
         {{ prose | markdownify | toc_only }}
       </div>
     </nav>
