@@ -42,13 +42,9 @@ toc: true
   {% endif %}
 {% endfor %}
 
-
-
-
-<div class="mx-auto lg-container px4 bg-white shadow rounded">
+<div class="mx-auto lg-container px4 bg-white shadow rounded py3">
   <div class="clearfix mxn2 flex">
-    <div class="col-12 md-col-8 px2">
-      <header class="mt3">
+      <header class="col-12 md-col-8 px2">
           <p class="mb3 semibold" style="color: #1798c1">
             Salesforce
           </p>
@@ -58,15 +54,8 @@ toc: true
           </a>
         </h1>
       </header>
-      <section class="prose">
-        {{ prose | markdownify }}
-        <p>
-        </p>
-      </section>
-    </div>
-    <nav class="col-4 px2 sticky top-0">
-      <div class="sticky top-0 py4">
-        <div class="flex">
+      <aside class="col-12 md-col-4">
+        <div class="flex right">
           <div class="flex pill-buttons">
             <a href="/posts/{{ previous_url }}" class="move-button previous-button shadow-hover text-decoration-none semibold h3 m0 block">
             <img src="/images/icons/previous.svg">
@@ -81,6 +70,18 @@ toc: true
           </a>
         </div>
         </div>
+      </aside>
+  </div>
+  <div class="clearfix mxn2 flex">
+    <div class="col-12 md-col-8 px2">
+      <section class="prose">
+        {{ prose | markdownify }}
+        <p>
+        </p>
+      </section>
+    </div>
+    <nav class="col-4 px2 sticky top-0 md-show toc-border">
+      <div class="sticky top-0 mb4">
         {{ prose | markdownify | toc_only }}
       </div>
     </nav>
