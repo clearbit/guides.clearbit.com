@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-43.8%" y="-42.0%" width="187.5%" height="187.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.301960784   0 0 0 0 0.435294118   0 0 0 0 0.607843137  0 0 0 0.144870924 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="56" height="56" rx="9"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Index" transform="translate(0.000000, -1.000000)">
+            <g id="Group-2" filter="url(#filter-1)" transform="translate(16.000000, 16.000000)">
+                <g id="icon-dark">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="#3386EE" xlink:href="#path-2"></use>
+                    <rect id="Rectangle-6" fill="#E6F0FC" mask="url(#mask-3)" x="28" y="28" width="28" height="28"></rect>
+                    <rect id="Rectangle-6" fill="#61A6FC" mask="url(#mask-3)" x="28" y="0" width="28" height="28"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

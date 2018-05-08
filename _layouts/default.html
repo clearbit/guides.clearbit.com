@@ -443,9 +443,24 @@ h1, h2, h3, h4, h5, h6, input {
     opacity: 1;
     transform: scale(1);
   }
+  .logo {
+    border-radius: 9px;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 1px 16px rgba(77,111,155,0.14);
+    margin: 1rem 0 0 1rem;
+  }
     </style>
   </head>
   <body>
+    <a href="/" class="block logo flex">
+      <div style="background-color: #3386EE; width: 50%; border-radius: 9px 0 0 9px;"></div>
+      <div style="background-color: transparent; width: 50%;">
+        <div style="background-color: #61A6FC; height: 50%; border-radius: 0 9px 0 0;"></div>
+        <div style="background-color: #E6F0FC; height: 50%; border-radius: 0 0 9px 0;"></div>
+      </div>
+
+    </a>
     <article role="main" class="mt4">
       <section class="">
         <div class="">
@@ -453,6 +468,9 @@ h1, h2, h3, h4, h5, h6, input {
         </div>
       </section>
     </article>
+    <footer class="center mt3">
+      <p class="m0 muted">&copy; 2018 Clearbit.</p>
+    </footer>
 
     <script src="/js/jquery.min.js"></script>
     <script>
@@ -461,6 +479,21 @@ h1, h2, h3, h4, h5, h6, input {
       $('.prose a').attr( "target", "_blank" )
     </script>
     <script src="/js/zoom.min.js"></script>
+
+    <script src="/js/isotope.pkgd.min.js"></script>
+
+    <script>
+      // init Isotope
+var $grid = $('.grid').isotope({
+    itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+      // filter items on button click
+$('.filter-button-group').on( 'click', 'li', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+</script>
 
     <script>
       /* ========================================================================

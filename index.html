@@ -18,9 +18,10 @@ title: Clearbit Guides
 
   <section class="col col-12 md-col-9 px2">
 
-  <div class="flex flex-wrap mxn2">
+  <div class="flex flex-wrap mxn2 grid">
     {% for p in sorted_posts %}
-    <div class="col-12 md-col-4 px2 flex mb3">
+    <!-- Add .salesforce or other trigger to sort -->
+    <div class="col-12 md-col-4 px2 flex mb3 grid-item">
       <a class="black block shadow-hover text-decoration-none shadow flex bg-white rounded p2 col-12" href="/posts/{{ p.title | slugify }}/">
 
         <div class="flex flex-column">
@@ -39,9 +40,9 @@ title: Clearbit Guides
   </div>
   </section>
   <section class="col col-12 md-col-3 px2">
-    <ul class="list-style-none">
-      <li style="background-color: #F6FAFF;" class="semibold h3 mb1 black px2 py1 bg-white shadow rounded block">Everything</li>
-      <li class="semibold h3 blue px2 py1 block">Salesforce</li>
+    <ul class="list-style-none filter-button-group">
+      <li style="background-color: #F6FAFF;" class="semibold h3 mb1 black px2 py1 bg-white shadow rounded block" data-filter="*">Everything</li>
+      <li class="semibold h3 blue px2 py1 block" data-filter=".salesforce">Salesforce</li>
       <li class="h3 mb1 black muted px2 py1 block">More soon...</li>
     </ul>
   </section>
