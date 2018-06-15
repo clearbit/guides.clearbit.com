@@ -130,9 +130,8 @@ article img {
 }
 
 body {
-    font-family: Avenir Next, sans-serif;
+    font-family: 'Avenir Next', Avenir, sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-color: #EDF4FD;
     margin-bottom: 8rem;
 }
 
@@ -470,18 +469,29 @@ h1, h2, h3, h4, h5, h6, input {
     box-shadow: 0 1px 16px rgba(77,111,155,0.14);
     margin: 1rem 0 0 1rem;
   }
+
+  .blue {
+    color: #4d81cc;
+  }
+  .muted-blue {
+    color: #98b5de;
+  }
     </style>
   </head>
   <body>
-    <a href="/" class="block logo flex">
-      <div style="background-color: #3386EE; width: 50%; border-radius: 9px 0 0 9px;"></div>
-      <div style="background-color: transparent; width: 50%;">
-        <div style="background-color: #61A6FC; height: 50%; border-radius: 0 9px 0 0;"></div>
-        <div style="background-color: #E6F0FC; height: 50%; border-radius: 0 0 9px 0;"></div>
-      </div>
-
-    </a>
-    <article role="main" class="mt4">
+    <a href="https://clearbit.com" class="dim">
+            <span class="dib relative h2 w2">
+              <div class="logo-bit-l absolute w-50 h-100"></div>
+              <div class="logo-bit-t-r absolute w-50 h-50 right-0"></div>
+              <div class="logo-bit-b-r absolute w-50 h-50 right-0 bottom-0"></div>
+            </span>
+          </a>
+          <div class="dtc v-mid pl3 blue fw6 pt1">
+          <a href="https://clearbit.com" class="link dim blue">
+            Clearbit
+          </a>
+        </div>
+   <article role="main" class="mt4">
       <section class="">
         <div class="">
           {{ content }}
