@@ -7,38 +7,47 @@ title: Clearbit Guides
 {% assign platforms = site.data.posts.platform %}
 {% assign sorted_posts = posts | sort: 'created_at' | reverse %}
 
-<div class="lg-container mx-auto px2">
-  <div class="clearfix mxn2">
-    <h1 class="h1 mt0 mb1 px2 black">Clearbit Guides</h1>
-    <h2 class="h2 regular mt0 mb3 px2 black">The best advice for building your sales automation.</h2>
+<div class="bg-maroon-gradient">
+  <div class="mw7 pt4 pb4 center bg-left">
+        <h3 class="f0 mt0 mb1 white"><a href="/" class="white link dim">Guides</a></h3>
+        <h5 class="f5 white mt0 mb0">The best advice for building your sales automation.</h5>
+      </div>
+    </div>
   </div>
 </div>
-<div class="lg-container mx-auto px2">
 
-  <article class="clearfix mxn2">
+<div class="border-bottom">
+  <div class="mw7 center">
+  <ul class="js-sort-nav list-style-none filter-button-group flex flex-wrap pa0 mt0 mb0">
+    <li data-filter="*">Everything</li>
+    {% for p in platforms %}
+    <li data-filter=".{{ p.sys.id }}">{{ p.title }}</li>
+    {% endfor %}
+  </ul>
+</div>
+</div>
 
-  <section class="col col-12 md-col-9 px2">
-
-  <div class="flex flex-wrap mxn2 grid">
+<article class="mw7 center pt3 pt4-m pt4-l mt3-l">
+  <div class="grid">
     {% for p in sorted_posts %}
     <div class="col-12 flex grid-item {{ p.platform.sys.id }}">
       <a class="black block text-decoration-none flex rounded p2 col-12" href="/posts/{{ p.title | slugify }}/">
 
-        <div class="flex flex-column border-bottom col-12">
-          <p class="mb1 semibold flex-none" style="color: #{{ p.platform.color }}">
+        <div class="{% unless forloop.last %}border-bottom{% endunless %} pb4 mb4">
+          <p class="gray avenir f6-5 mt0 mb1">
             {{ p.platform.title }}
           </p>
-          <h1 class="h1 mt0 mb1 flex-auto semibold">
-              {{ p.title }}
+          <h1 class="f3 f2-m f1-l mb0 mt0 lh-title">
+            {{ p.title }}
           </h1>
-          <p class="mb1 flex-none prose">
+          <p class="lh-copy f5 pb2 near-black">
             {{ p.markdown | markdownify | strip_html | truncate: 270 }}
           </p>
-          <p class="mb3 semibold flex-none blue">
-            Read on
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1em" width="1em" fill="currentcolor" class="ml2 muted-blue" viewBox="0 0 30 30">
-       <use xlink:href="#right_arrow"></use>
-     </svg>
+          <p class="link blue dim ttu b f6">
+            Read On
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1em" width="1em" fill="currentcolor" class="ml2 muted-blue relative top-px-2" viewBox="0 0 30 30">
+              <use xlink:href="#right_arrow"></use>
+            </svg>
           </p>
         </div>
 
@@ -47,16 +56,4 @@ title: Clearbit Guides
     </div>
     {% endfor %}
   </div>
-  </section>
-  <section class="col col-12 md-col-3 px2 md-show">
-    <ul class="list-style-none filter-button-group">
-      <li style="background-color: #F6FAFF;" class="semibold h3 mb1 black px2 py1 bg-white shadow rounded block" data-filter="*">Everything</li>
-    {% for p in platforms %}
-    <li class="semibold h3 blue px2 py1 block" data-filter=".{{ p.sys.id }}">{{ p.title }}</li>
-      {% endfor %}
-      <li class="h3 mb1 black muted px2 py1 block">More soon...</li>
-    </ul>
-  </section>
 </article>
-
-</div>

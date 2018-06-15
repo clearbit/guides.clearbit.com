@@ -42,7 +42,7 @@ toc: true
   {% endif %}
 {% endfor %}
 
-<div class="mx-auto lg-container px4 bg-white shadow rounded py3">
+<div class="mx-auto lg-container px4 py3">
   <div class="clearfix mxn2 flex">
       <header class="col-12 md-col-8 px2">
         <p class="mb3 semibold" style="color: #{{ page.platform.color }}">
@@ -88,3 +88,31 @@ toc: true
   </div>
 </div>
 
+<aside>
+    <article class="pa3 pt0 ph5-l tc">
+  <div class="pv3 pv4-m pv4-l ph3 ph5-m ph5-l">
+      <h6 class="b ttu f6 moon-gray ph3 pv2 dib bg-white mb3 br2">
+        Read this next
+      </h6>
+
+    <h2 class="f3 f2-m f1-l mb0 mt2">
+      <a href="/posts/{{ next_url }}" class="link dim near-black">
+        /posts/{{ next_url }}
+      </a>
+    </h2>
+
+    <section class="pb3">
+      <p class="lh-copy f5 pb2 ph6-l">
+        /posts/{{ next_url }}
+      </p>
+
+      <a class="link blue dim ttu b f6" href="/posts/{{ next_url }}">
+        Read On
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1em" width="1em" fill="currentcolor" class="ml2 muted-blue relative top-px-2" viewBox="0 0 30 30">
+           <use xlink:href="#right_arrow"></use>
+         </svg>
+      </a>
+    </section>
+  </div>
+</article>
+</aside>
