@@ -42,33 +42,28 @@ toc: true
   {% endif %}
 {% endfor %}
 
-<div class="mx-auto lg-container px4 py3">
+<div class="mw7 center ph3 pt3 pt4-m pt4-l mt3-l">
   <div class="clearfix mxn2 flex">
-      <header class="col-12 md-col-8 px2">
-        <p class="mb3 semibold" style="color: #{{ page.platform.color }}">
-            {{ page.platform.title }}
-          </p>
-        <h1 class="mt0 mb3">
-          <a href="/posts/{{ page.title | slugify }}/" class="black">
-            {{ page.title }}
-          </a>
-        </h1>
-      </header>
+    <header class="col-12 md-col-8 px2">
+      <p class="gray avenir f6-5 mb0">
+        {{ page.platform.title }}
+      </p>
+      <h1 class="f3 f2-m f1-l mt1 mb2">
+        <a href="/posts/{{ page.title | slugify }}/" class="black text-decoration-none">
+          {{ page.title }}
+        </a>
+      </h1>
+    </header>
   </div>
-  <div class="clearfix mxn2 flex">
-    <div class="col-12 md-col-8 px2">
-      <section class="prose">
-        {{ prose | markdownify }}
-        <p>
-        </p>
-      </section>
-    </div>
-    <nav class="col-4 px2 sticky top-0 md-show toc-border">
-      <div class="sticky top-0 mb4">
-        {{ prose | markdownify | toc_only }}
-      </div>
-    </nav>
-  </div>
+  <nav class="mt2 mb2 js-toc">
+    <h6 class="h6 semibold tracked mt0 mb2 o-60">TABLE OF CONTENTS</h6>
+      {{ prose | markdownify | toc_only }}
+  </nav>
+  <section class="prose">
+    {{ prose | markdownify }}
+    <p>
+    </p>
+  </section>
 </div>
 
 {% if page.markdown %}
