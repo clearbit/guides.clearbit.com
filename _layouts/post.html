@@ -19,11 +19,11 @@ toc: true
 
     {% if position == forloop.length %}
       {% for p in sorted_posts limit:1 offset:0 %}
-        {% assign next_url = p.title | slugify %}
+        {% assign next_post = p %}
       {% endfor %}
     {% else %}
       {% for p in sorted_posts limit:1 offset:position %}
-        {% assign next_url = p.title | slugify %}
+        {% assign next_post = p %}
       {% endfor %}
     {% endif %}
 
@@ -54,23 +54,6 @@ toc: true
           </a>
         </h1>
       </header>
-      <aside class="col-12 md-col-4">
-        <div class="flex right">
-          <div class="flex pill-buttons">
-            <a href="/posts/{{ previous_url }}" class="move-button previous-button shadow-hover text-decoration-none semibold h3 m0 block">
-            <img src="/images/icons/previous.svg">
-          </a>
-          <a href="/posts/{{ next_url }}" class="move-button next-button shadow-hover text-decoration-none semibold h3 m0 block">
-            <img src="/images/icons/next.svg">
-          </a>
-          </div>
-          <div class="">
-          <a href="/" class="back-button shadow shadow-hover text-decoration-none semibold h3 m0 block">
-            <img src="/images/icons/close.svg">
-          </a>
-        </div>
-        </div>
-      </aside>
   </div>
   <div class="clearfix mxn2 flex">
     <div class="col-12 md-col-8 px2">
@@ -88,6 +71,7 @@ toc: true
   </div>
 </div>
 
+{% if page.markdown %}
 <aside>
     <article class="pa3 pt0 ph5-l tc">
   <div class="pv3 pv4-m pv4-l ph3 ph5-m ph5-l">
@@ -96,23 +80,25 @@ toc: true
       </h6>
 
     <h2 class="f3 f2-m f1-l mb0 mt2">
-      <a href="/posts/{{ next_url }}" class="link dim near-black">
-        /posts/{{ next_url }}
+      <a href="/posts/{{ next_post.title | slugify }}" class="link dim near-black">
+        {{ next_post.title }}
       </a>
     </h2>
 
     <section class="pb3">
       <p class="lh-copy f5 pb2 ph6-l">
-        /posts/{{ next_url }}
+            {{ next_post.markdown | markdownify | strip_html | truncate: 270 }}
       </p>
 
-      <a class="link blue dim ttu b f6" href="/posts/{{ next_url }}">
+      <a class="link blue dim ttu b f6" href="/posts/{{ next_post.title | slugify }}">
         Read On
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1em" width="1em" fill="currentcolor" class="ml2 muted-blue relative top-px-2" viewBox="0 0 30 30">
            <use xlink:href="#right_arrow"></use>
          </svg>
       </a>
     </section>
+
   </div>
 </article>
 </aside>
+{% endif %}
