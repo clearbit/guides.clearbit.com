@@ -723,7 +723,7 @@ div.highlighter-rouge {
   .js-toc {
     position: sticky;
     top: 120px;
-    z-index: 3;
+    z-index: 2;
     max-width: 200px;
     margin-right: -220px;
     float: right;
