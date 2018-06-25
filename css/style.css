@@ -719,13 +719,15 @@ div.highlighter-rouge {
   border-bottom: 4px solid #AEC0D0;
 }
 
-.js-toc {
-  position: sticky;
-  top: 120px;
-  z-index: 3;
-  max-width: 200px;
-  margin-right: -220px;
-  float: right;
+@media screen and (min-width: 1200px) {
+  .js-toc {
+    position: sticky;
+    top: 120px;
+    z-index: 3;
+    max-width: 200px;
+    margin-right: -220px;
+    float: right;
+  }
 }
 
 .js-toc a {
