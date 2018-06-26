@@ -499,9 +499,8 @@ h1, h2, h3, h4, h5, h6, input {
 
 /* TOC */
 .js-toc {
-  background-color: #E6F0FC;
-  padding: 1rem 2rem;
-  border-radius: 6px;
+  transform: translateX(-2rem);
+  padding-left: 2rem;
 }
 .section-nav {
   list-style: decimal;
@@ -721,23 +720,29 @@ div.highlighter-rouge {
 
 @media screen and (min-width: 1200px) {
   .js-toc {
+    transform: translateX(0);
     position: sticky;
     top: 120px;
     z-index: 2;
-    max-width: 200px;
-    margin-right: -220px;
+    max-width: 260px;
+    margin-right: -280px;
     float: right;
   }
+
+  .js-article {
+    transform: translateX(-140px);
+  }
+
 }
 
 .js-toc a {
+  color: #afafaf;
   text-decoration: none;
   font-weight: 500;
-  color: #25364B;
-  opacity: 0.45;
   transition: all .15s ease-in-out;
 }
 
 .js-toc a.active {
   opacity: 1;
+  color: #25364B;
 }
