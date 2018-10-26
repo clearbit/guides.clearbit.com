@@ -1,0 +1,75 @@
+---
+title: Clearbit Guides Tracker
+permalink: /tracker/
+---
+
+{% assign posts = site.data.posts.post %}
+{% assign sorted_posts = posts | sort: 'priority' | reverse %}
+{% assign levels = 'Basic|Intermediate|Advanced' | split: '|' %}
+{% assign products = 'Enrichment|Prospector|Reveal' | split: '|' %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{ page.title }}</title>
+    {% assign current_url = site.url | append: page.url %}
+    <meta name="robots" content="noindex,nofollow">
+
+    <link href="/css/tachyons.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    {% include header.html %}
+
+    <div id="tracker" class="mv4 mr3">
+      <div class="flex">
+        <div class="w-10"></div>
+
+        {% for product in products %}
+          <div class="w-30 gray">
+            <h2 class="tc">
+              {{ product }}
+            </h2>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% for level in levels %}
+        <div class="flex">
+          <div class="w-10 level-heading gray">
+            <h2 class="tc rotate-270">
+              {{ level }}
+            </h2>
+          </div>
+
+          {% for product in products %}
+            <div class="w-30 pv4 flex flex-wrap justify-center align-center bb bl b--light-gray">
+              {% for post in sorted_posts %}
+                {% if post.level == level and post.product == product %}
+                  <div class="ma2 black-80 pv1 ph3 br2 ba b--light-silver w-40">
+                    <p class="pa0">
+                      {{ post.title }} 
+                      <a class="link dim pointer" href="/posts/{{ post.title | slugify }}/">
+                        <img class="v-mid" src="https://icon.now.sh/open_in_new/454545">
+                      </a>
+                    </p>
+
+                    <input type="checkbox" checked="checked" />
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <script type="text/javascript">
+      var platforms = {{ platforms | jsonify }};
+      var posts = {{ posts | jsonify }};
+      console.log(posts);
+    </script>
+  </body>
+</html>
