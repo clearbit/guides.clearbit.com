@@ -15,6 +15,10 @@ h6 {
   font-size: 15px;
 }
 
+.level-heading {
+  margin: auto;
+}
+
 .cms,
 .near-black  {
   color: #1b1f35;
