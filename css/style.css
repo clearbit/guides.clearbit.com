@@ -23,6 +23,10 @@ h6 {
   min-height: 50%;
 }
 
+.post-checkbox:checked + .label-checkbox {
+  font-weight: bold;
+}
+
 .cms,
 .near-black  {
   color: #1b1f35;
