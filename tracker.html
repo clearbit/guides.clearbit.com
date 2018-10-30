@@ -58,9 +58,9 @@ permalink: /tracker/
                       </p>
                     </div>
 
-                    <div class="checkbox-container bt self-end db w-100">
-                      <label for="{{ post.title | slugify }}">Completed</label>
-                      <input id="{{ post.title | slugify }}" type="checkbox" onclick="updateStatus()"  />
+                    <div class="checkbox-container bt pv2 flex align-center justify-center db w-100 ph2 bg-light-gray">
+                      <input class="post-checkbox w-20" id="{{ post.title | slugify }}" type="checkbox" onclick="updateStatus('{{ post.title | slugify }}')"  />
+                      <label class="label-checkbox w-80" id="label-{{ post.title | slugify }}" for="{{ post.title | slugify }}">To do</label>
                     </div>
                   </div>
                 {% endif %}
