@@ -7,11 +7,22 @@ function setInitialStatus() {
 
     if (pair[1] === 'true') {
       $('#' + pair[0]).prop('checked', true);
+      $('#label-' + pair[0]).text('Completed');
     }
   }
 }
 
-function updateStatus() {
+function updateStatus(post) {
+  // update clicked checkbox
+  var labelText = 'To do';
+
+  if ($('#' + post).prop('checked')) {
+    labelText = 'Completed';
+  }
+
+  $('#label-' + post).text(labelText);
+
+  // update URL
   var checkboxes = $('input[type="checkbox"]:checked');
   var urlParams = [];
 
