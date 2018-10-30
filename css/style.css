@@ -19,6 +19,10 @@ h6 {
   margin: auto;
 }
 
+.post-listing {
+  min-height: 50%;
+}
+
 .cms,
 .near-black  {
   color: #1b1f35;
