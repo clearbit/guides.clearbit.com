@@ -23,12 +23,21 @@ h6 {
   min-height: 50%;
 }
 
+.post-listing a:focus {
+  outline: 0px;
+}
+
 .checkbox-container {
   bottom: 0px;
   left: 0px;
 }
+
 .post-checkbox:checked + .label-checkbox {
   font-weight: 500;
+}
+
+.cb-blue {
+  color: #3386EE;
 }
 
 .cms,

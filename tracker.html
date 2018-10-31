@@ -3,6 +3,8 @@ title: Clearbit Guides Tracker
 permalink: /tracker/
 ---
 
+{% assign checked_copy = 'Implemented' %}
+{% assign unchecked_copy = '&nbsp;' %}
 {% assign posts = site.data.posts.post %}
 {% assign sorted_posts = posts | sort: 'priority' | reverse %}
 {% assign levels = 'Basic|Intermediate|Advanced' | split: '|' %}
@@ -28,7 +30,7 @@ permalink: /tracker/
         <div class="w-10"></div>
 
         {% for product in products %}
-          <div class="w-30 gray">
+          <div class="w-30 black-60">
             <h2 class="tc">
               {{ product }}
             </h2>
@@ -38,29 +40,47 @@ permalink: /tracker/
 
       {% for level in levels %}
         <div class="flex">
-          <div class="w-10 level-heading gray">
+          <div class="w-10 level-heading black-60">
             <h2 class="tc rotate-270">
               {{ level }}
             </h2>
           </div>
 
           {% for product in products %}
-            <div class="w-30 pv4 pl3 flex flex-wrap align-center bb bl b--light-gray overflow-hidden">
+            <div class="w-30 pt3 pb4 ph2 flex flex-wrap align-center bb bl b--light-gray">
               {% for post in sorted_posts %}
                 {% if post.level == level and post.product == product %}
-                  <div class="relative post-listing self-start ma2 black-80 pv1 ph3 br2 ba b--light-silver w-45">
-                    <div class="content-container">
-                      <p class="pa0">
-                        {{ post.title }}
-                        <a class="link dim pointer" href="/posts/{{ post.title | slugify }}/">
-                          <img class="v-mid" src="https://icon.now.sh/open_in_new/454545">
+                  <div class="post-listing w-50-ns mv2 flex self-start">
+                    <div class="relative w-100 black-80 mh2 pv1 ph3 br2 ba b--light-silver bg-white">
+                      <p class="pa0 f6 mb4 fw5">
+                        <a
+                          class="cb-blue link dim pointer"
+                          href="/posts/{{ post.title | slugify }}/"
+                          target="_blank"
+                        >
+                          {{ post.title }}
                         </a>
                       </p>
-                    </div>
 
-                    <div class="absolute checkbox-container bt flex align-center justify-center w-100 bg-light-gray br2 br--bottom">
-                      <input class="post-checkbox w-20 pointer mt2 ml2" id="{{ post.title | slugify }}" type="checkbox" onclick="updateStatus('{{ post.title | slugify }}')"  />
-                      <label class="label-checkbox w-80 pointer lh-copy f6 pv1 pr2" id="label-{{ post.title | slugify }}" for="{{ post.title | slugify }}">To do</label>
+                      <div
+                        id="container-{{ post.title | slugify }}"
+                        class="absolute checkbox-container bt flex align-center justify-center w-100 bg-black-05 dark-green b--light-silver br2 br--bottom"
+                      >
+                        <input
+                          class="dn post-checkbox w-20 pointer mt2 ml2"
+                          id="{{ post.title | slugify }}"
+                          type="checkbox"
+                          onclick="updateStatus('{{ post.title | slugify }}')"
+                        />
+
+                        <label
+                          class="label-checkbox w-100 pointer lh-copy f6 pv1 pl3"
+                          id="label-{{ post.title | slugify }}"
+                          for="{{ post.title | slugify }}"
+                        >
+                          {{ unchecked_copy }}
+                        </label>
+                      </div>
                     </div>
                   </div>
                 {% endif %}
@@ -72,6 +92,51 @@ permalink: /tracker/
     </div>
 
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/tracker.js"></script>
+    <script type="text/javascript">
+      var checkedBackground = 'bg-washed-green';
+
+      function setInitialStatus() {
+        var query = window.location.search.substring(1);
+        var params = query.split('&');
+
+        for (var i = 0; i < params.length; i++) {
+          var pair = params[i].split('=');
+
+          if (pair[1] === 'true') {
+            $('#' + pair[0]).prop('checked', true);
+            $('#label-' + pair[0]).html('{{ checked_copy }}');
+            $('#container-' + pair[0]).toggleClass(checkedBackground);
+          }
+        }
+      }
+
+      function updateStatus(post) {
+        // update clicked checkbox
+        var labelText = '{{ unchecked_copy }}';
+
+        if ($('#' + post).prop('checked')) {
+          labelText = '{{ checked_copy }}';
+        }
+
+        $('#label-' + post).html(labelText);
+        $('#container-' + post).toggleClass(checkedBackground);
+
+        // update URL
+        var checkboxes = $('input[type="checkbox"]:checked');
+        var urlParams = [];
+
+        for (var c = 0; c < checkboxes.length; c++) {
+          urlParams.push(checkboxes[c].id + '=true');
+        }
+
+        var baseURL = [window.location.protocol, '//', window.location.host, window.location.pathname].join('');
+        var queryString = urlParams.join('&');
+        var finalURL = baseURL + '?' + queryString
+
+        window.history.replaceState('', 'Guides Tracker', finalURL);
+      }
+
+      setInitialStatus();
+    </script>
   </body>
 </html>
