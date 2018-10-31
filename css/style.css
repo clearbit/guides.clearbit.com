@@ -23,6 +23,10 @@ h6 {
   min-height: 50%;
 }
 
+.checkbox-container {
+  bottom: 0px;
+  left: 0px;
+}
 .post-checkbox:checked + .label-checkbox {
   font-weight: 500;
 }

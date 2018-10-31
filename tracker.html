@@ -45,10 +45,10 @@ permalink: /tracker/
           </div>
 
           {% for product in products %}
-            <div class="w-30 pv4 flex flex-wrap justify-center align-center bb bl b--light-gray">
+            <div class="w-30 pv4 pl3 flex flex-wrap align-center bb bl b--light-gray overflow-hidden">
               {% for post in sorted_posts %}
                 {% if post.level == level and post.product == product %}
-                  <div class="post-listing flex flex-column self-start content-between ma2 black-80 pv1 ph3 br2 ba b--light-silver w-40">
+                  <div class="relative post-listing self-start ma2 black-80 pv1 ph3 br2 ba b--light-silver w-45">
                     <div class="content-container">
                       <p class="pa0">
                         {{ post.title }}
@@ -58,9 +58,9 @@ permalink: /tracker/
                       </p>
                     </div>
 
-                    <div class="checkbox-container bt pv2 flex align-center justify-center db w-100 ph2 bg-light-gray">
-                      <input class="post-checkbox w-20" id="{{ post.title | slugify }}" type="checkbox" onclick="updateStatus('{{ post.title | slugify }}')"  />
-                      <label class="label-checkbox w-80" id="label-{{ post.title | slugify }}" for="{{ post.title | slugify }}">To do</label>
+                    <div class="absolute checkbox-container bt flex align-center justify-center w-100 bg-light-gray br2 br--bottom">
+                      <input class="post-checkbox w-20 pointer mt2 ml2" id="{{ post.title | slugify }}" type="checkbox" onclick="updateStatus('{{ post.title | slugify }}')"  />
+                      <label class="label-checkbox w-80 pointer lh-copy f6 pv1 pr2" id="label-{{ post.title | slugify }}" for="{{ post.title | slugify }}">To do</label>
                     </div>
                   </div>
                 {% endif %}
