@@ -24,7 +24,7 @@ h6 {
 }
 
 .post-checkbox:checked + .label-checkbox {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .cms,
