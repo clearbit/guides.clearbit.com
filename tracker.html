@@ -31,7 +31,7 @@ permalink: /tracker/
 
         {% for product in products %}
           <div class="w-30 black-60">
-            <h2 class="tc">
+            <h2 class="f4 tc mb0">
               {{ product }}
             </h2>
           </div>
@@ -41,7 +41,7 @@ permalink: /tracker/
       {% for level in levels %}
         <div class="flex">
           <div class="w-10 level-heading black-60">
-            <h2 class="tc rotate-270">
+            <h2 class="f4 tc rotate-270 mb0">
               {{ level }}
             </h2>
           </div>
@@ -62,7 +62,7 @@ permalink: /tracker/
                 {% for post in sorted_posts %}
                   {% if post.level == level and post.product == product %}
                     <div class="post-listing w-50-ns mv2 flex self-start">
-                      <div class="post-inner shadow-2 center relative w-100 black-80 mh2 pv1 ph3 br2 bg-white">
+                      <div class="post-inner shadow-2 center relative w-100 black-80 mh2 pv1 ph3 br3 bg-white">
                         <p class="pa0 f6 mb4 fw5">
                           <a
                             class="cb-blue link dim pointer"
@@ -75,8 +75,16 @@ permalink: /tracker/
 
                         <div
                           id="container-{{ post.title | slugify }}"
-                          class="absolute checkbox-container bt flex align-center justify-center w-100 bg-black-05 dark-green b--light-silver br2 br--bottom"
+                          class="absolute checkbox-container flex align-center justify-center w-100 br3 br--bottom"
                         >
+                          <div
+                            class="icon-container bg-gray pv2 ph3 tc align-center pointer"
+                            id="icon-{{ post.title | slugify }}"
+                            onclick="updateStatus('{{ post.title | slugify }}', true)"
+                          >
+                            <img class="v-mid" src="/images/icons/to-implement.png">
+                          </div>
+
                           <input
                             class="dn post-checkbox w-20 pointer mt2 ml2"
                             id="{{ post.title | slugify }}"
@@ -111,7 +119,7 @@ permalink: /tracker/
 
     <script src="/js/jquery.min.js"></script>
     <script type="text/javascript">
-      var checkedBackground = 'bg-washed-green';
+      var checkedBackground = 'bg-teal';
 
       function setInitialStatus() {
         var query = window.location.search.substring(1);
@@ -121,23 +129,28 @@ permalink: /tracker/
           var pair = params[i].split('=');
 
           if (pair[1] === 'true') {
-            $('#' + pair[0]).prop('checked', true);
-            $('#label-' + pair[0]).html('{{ checked_copy }}');
-            $('#container-' + pair[0]).toggleClass(checkedBackground);
+            updateStatus(pair[0], true);
           }
         }
       }
 
-      function updateStatus(post) {
+      function updateStatus(post, forceChange) {
+        if (forceChange) {
+          $('#' + post).prop('checked', !($('#' + post).prop('checked')));
+        }
+
         // update clicked checkbox
         var labelText = '{{ unchecked_copy }}';
+        var imageSrc = '/images/icons/to-implement.png';
 
         if ($('#' + post).prop('checked')) {
           labelText = '{{ checked_copy }}';
+          imageSrc = '/images/icons/implemented.png'
         }
 
         $('#label-' + post).html(labelText);
-        $('#container-' + post).toggleClass(checkedBackground);
+        $('#icon-' + post).toggleClass(checkedBackground);
+        $('#icon-' + post + ' img').attr('src', imageSrc);
 
         // update URL
         var checkboxes = $('input[type="checkbox"]:checked');

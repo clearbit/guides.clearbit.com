@@ -41,6 +41,23 @@ h6 {
   left: 0px;
 }
 
+.bg-teal {
+  background: #31D1D1;
+}
+
+.b--teal {
+  border-color: #31D1D1;
+}
+
+.icon-container {
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.icon-container img {
+  width: 16px;
+}
+
 .post-checkbox:checked + .label-checkbox {
   font-weight: 500;
 }
