@@ -47,7 +47,17 @@ permalink: /tracker/
           </div>
 
           {% for product in products %}
-            <div class="w-30 pv4 ph2 bb bl b--light-gray">
+            {% if product == 'Enrichment' and level == 'Advanced' %}
+              {% assign border_styling = '' %}
+            {% elsif product == 'Enrichment' %}
+              {% assign border_styling = 'bb' %}
+            {% elsif level == 'Advanced' %}
+              {% assign border_styling = 'bl' %}
+            {% else %}
+              {% assign border_styling = 'bb bl' %}
+            {% endif %}
+
+            <div class="w-30 pv4 ph2 {{ border_styling }} b--gray">
               <div class="block-container center flex flex-wrap align-center">
                 {% for post in sorted_posts %}
                   {% if post.level == level and post.product == product %}
