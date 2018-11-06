@@ -22,7 +22,7 @@ permalink: /tracker/
     <link href="/css/tachyons.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-light-gray">
     {% include header.html %}
 
     <div id="tracker" class="mv3 mr3">
@@ -47,44 +47,46 @@ permalink: /tracker/
           </div>
 
           {% for product in products %}
-            <div class="w-30 pt3 pb4 ph2 flex flex-wrap align-center bb bl b--light-gray">
-              {% for post in sorted_posts %}
-                {% if post.level == level and post.product == product %}
-                  <div class="post-listing w-50-ns mv2 flex self-start">
-                    <div class="relative w-100 black-80 mh2 pv1 ph3 br2 ba b--light-silver bg-white">
-                      <p class="pa0 f6 mb4 fw5">
-                        <a
-                          class="cb-blue link dim pointer"
-                          href="/posts/{{ post.title | slugify }}/"
-                          target="_blank"
-                        >
-                          {{ post.title }}
-                        </a>
-                      </p>
+            <div class="w-30 pv4 ph2 bb bl b--light-gray">
+              <div class="block-container center flex flex-wrap align-center">
+                {% for post in sorted_posts %}
+                  {% if post.level == level and post.product == product %}
+                    <div class="post-listing w-50-ns mv2 flex self-start">
+                      <div class="post-inner shadow-2 center relative w-100 black-80 mh2 pv1 ph3 br2 bg-white">
+                        <p class="pa0 f6 mb4 fw5">
+                          <a
+                            class="cb-blue link dim pointer"
+                            href="/posts/{{ post.title | slugify }}/"
+                            target="_blank"
+                          >
+                            {{ post.title }}
+                          </a>
+                        </p>
 
-                      <div
-                        id="container-{{ post.title | slugify }}"
-                        class="absolute checkbox-container bt flex align-center justify-center w-100 bg-black-05 dark-green b--light-silver br2 br--bottom"
-                      >
-                        <input
-                          class="dn post-checkbox w-20 pointer mt2 ml2"
-                          id="{{ post.title | slugify }}"
-                          type="checkbox"
-                          onclick="updateStatus('{{ post.title | slugify }}')"
-                        />
-
-                        <label
-                          class="label-checkbox w-100 pointer lh-copy f6 pv1 pl3"
-                          id="label-{{ post.title | slugify }}"
-                          for="{{ post.title | slugify }}"
+                        <div
+                          id="container-{{ post.title | slugify }}"
+                          class="absolute checkbox-container bt flex align-center justify-center w-100 bg-black-05 dark-green b--light-silver br2 br--bottom"
                         >
-                          {{ unchecked_copy }}
-                        </label>
+                          <input
+                            class="dn post-checkbox w-20 pointer mt2 ml2"
+                            id="{{ post.title | slugify }}"
+                            type="checkbox"
+                            onclick="updateStatus('{{ post.title | slugify }}')"
+                          />
+
+                          <label
+                            class="label-checkbox w-100 pointer lh-copy f6 pv1 pl3"
+                            id="label-{{ post.title | slugify }}"
+                            for="{{ post.title | slugify }}"
+                          >
+                            {{ unchecked_copy }}
+                          </label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </div>
             </div>
           {% endfor %}
         </div>

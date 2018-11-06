@@ -19,12 +19,21 @@ h6 {
   margin: auto;
 }
 
+.block-container {
+  max-width: 418px;
+}
+
 .post-listing {
-  min-height: 50%;
+  min-height: 144px;
 }
 
 .post-listing a:focus {
   outline: 0px;
+}
+
+.post-inner {
+  max-width: 192px;
+  box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.1);
 }
 
 .checkbox-container {
