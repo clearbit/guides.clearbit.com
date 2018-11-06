@@ -136,8 +136,8 @@ permalink: /tracker/
         }
       }
 
-      function updateStatus(post, forceChange) {
-        if (forceChange) {
+      function updateStatus(post, check) {
+        if (check) {
           $('#' + post).prop('checked', !($('#' + post).prop('checked')));
         }
 
