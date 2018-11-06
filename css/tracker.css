@@ -1,0 +1,62 @@
+.level-heading {
+  margin: auto;
+}
+
+.block-container {
+  max-width: 418px;
+}
+
+.post-listing {
+  min-height: 144px;
+}
+
+.post-listing a:focus {
+  outline: 0px;
+}
+
+.post-inner {
+  max-width: 192px;
+  box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.1);
+}
+
+.post-inner label {
+  font-size: 12px;
+}
+
+.checkbox-container {
+  bottom: 0px;
+  left: 0px;
+}
+
+.bg-blue-gray {
+  background: #AEC0D0;
+}
+
+.bg-teal {
+  background: #31D1D1;
+}
+
+.b--teal {
+  border-color: #31D1D1;
+}
+
+.teal {
+  color: #31D1D1;
+}
+
+.icon-container {
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.icon-container img {
+  width: 16px;
+}
+
+.post-checkbox:checked + .label-checkbox {
+  font-weight: 500;
+}
+
+.cb-blue {
+  color: #3386EE;
+}

@@ -15,31 +15,6 @@ h6 {
   font-size: 15px;
 }
 
-.level-heading {
-  margin: auto;
-}
-
-.post-listing {
-  min-height: 50%;
-}
-
-.post-listing a:focus {
-  outline: 0px;
-}
-
-.checkbox-container {
-  bottom: 0px;
-  left: 0px;
-}
-
-.post-checkbox:checked + .label-checkbox {
-  font-weight: 500;
-}
-
-.cb-blue {
-  color: #3386EE;
-}
-
 .cms,
 .near-black  {
   color: #1b1f35;
