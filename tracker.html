@@ -154,7 +154,11 @@ permalink: /tracker/
 
         if ($('#' + post).prop('checked')) {
           labelText = '{{ checked_copy }}';
-          imageSrc = '/images/icons/implemented.png'
+          imageSrc = '/images/icons/implemented.png';
+
+          analytics.track('tracker_item_checked', {item: post});
+        } else {
+          analytics.track('tracker_item_unchecked', {item: post});
         }
 
         $('#container-' + post).toggleClass('b--teal ba');
