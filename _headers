@@ -1,0 +1,4 @@
+/*
+  X-Content-Type-Options: nosniff
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy-Report-Only: default-src: 'self'; report-uri https://o13610.ingest.sentry.io/api/6173537/security/?sentry_key=7ac906c405c04da0bad984892f88d1bb

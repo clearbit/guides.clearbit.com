@@ -22,6 +22,8 @@ exclude:
 - vendor/cache/
 - vendor/gems/
 - vendor/ruby/
+include:
+- _headers
 contentful:
   spaces:
     - posts:
