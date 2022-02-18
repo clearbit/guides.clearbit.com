@@ -13,7 +13,7 @@ module Jekyll
     end
 
     def imgix_client
-      @imgix_client ||= Imgix::Client.new(host: 'assets.imgix.net')
+      @imgix_client ||= Imgix::Client.new(domain: 'assets.imgix.net')
     end
 
     def social_image_url(title,url)
